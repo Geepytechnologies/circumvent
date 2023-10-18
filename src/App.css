@@ -78,26 +78,48 @@
 .lets-talk h3 {
   font-size: 4rem;
 }
-.grid-mat-section .grid-container {
-  position: relative;
-  margin: 0 auto;
+.grid {
+ position: relative;
+}
+.grid .grid-container {
   display: grid;
   max-width: auto;
   grid-template-columns: repeat(9, 1fr);
 }
-.grid-mat-section .grid-item {
+.grid .grid-item {
   height: 8rem;
   border: 0.02px solid rgba(128, 128, 128, 0.5);
-  border-right: none;
   display: flex;
   align-items: flex-end;
 }
-.grid-mat-section .grid-container > :nth-child(-n + 36) {
+.grid .grid-container> :nth-child(-n + 36) {
   border-bottom: none;
 }
-.grid-mat-section .grid-container > :nth-child(9n) {
-  border-right: 0.05px solid rgba(128, 128, 128, 0.5);
+/* Target items in the range (1-8) */
+.grid .grid-container>:nth-child(n):nth-child(-n+8) {
+  border-right: none;
 }
+
+/* Target items in the range (10-17) */
+.grid .grid-container>:nth-child(n+10):nth-child(-n+17) {
+   border-right: none;
+}
+
+/* Target items in the range (19-26) */
+.grid .grid-container>:nth-child(n+19):nth-child(-n+26) {
+  border-right: none;
+}
+
+/* Target items in the range (28-35) */
+.grid .grid-container>:nth-child(n+28):nth-child(-n+35) {
+   border-right: none;
+}
+
+/* Target items in the range (37-44) */
+.grid .grid-container>:nth-child(n+37):nth-child(-n+44) {
+  border-right: none;
+}
+
 /* Ellipses, bl=blue and bk=black */
 .ellipse {
   border-radius: 50%;
@@ -144,17 +166,17 @@
   animation-delay: 2.5s;
 }
 /* sm */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 640px), screen and (max-width: 768px) {
   /* GridMat Component */
-  .lets-talk {
-    width: 13rem;
-    height: 13rem;
+ .lets-talk {
+    width: 16rem;
+    height: 16rem;
   }
   .lets-talk h3{
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-  .grid-mat-section .grid-item {
-    height: 3rem;
+   .grid-mat-section .grid-item {
+    height: 5rem;
   }
   /* Ellipses, bl=blue and bk=black */
   .bk-1,
@@ -193,14 +215,6 @@
 }
 /* md */
 @media screen and (max-width: 768px) {
-    .lets-talk {
-    width: 16rem;
-    height: 16rem;
-  }
-  .lets-talk h3{
-    font-size: 3rem;
-  }
-  
   .menulink {
     color: rgba(0, 9, 51, 0.4);
     font-family: euclid;
